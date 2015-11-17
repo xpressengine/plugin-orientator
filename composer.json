@@ -1,0 +1,27 @@
+{
+  "name": "xpressengine-plugin/orientator",
+  "description": "Image orientate plugin",
+  "keywords": ["xpressengine bundle", "image", "media", "orientate"],
+  "version": "0.0.1",
+  "support": {
+    "email": "developers@xpressengine.com"
+  },
+  "authors": [
+    {
+      "name": "XE Team",
+      "email": "developers@xpressengine.com",
+      "homepage": "http://xpressengine.io",
+      "role": "Developer"
+    }
+  ],
+  "license": "LGPL",
+  "type": "xpressengine-plugin",
+  "extra": {
+    "xpressengine": {
+      "title": "Image Orientator"
+    }
+  },
+  "require": {
+    "intervention/image": "2.1.*"
+  }
+}
