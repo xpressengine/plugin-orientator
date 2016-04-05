@@ -18,7 +18,8 @@
   "type": "xpressengine-plugin",
   "extra": {
     "xpressengine": {
-      "title": "Image Orientator"
+      "title": "Image Orientator",
+      "icon": "icon.png"
     }
   },
   "require": {
