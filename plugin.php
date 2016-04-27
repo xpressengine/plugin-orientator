@@ -10,7 +10,7 @@ class Plugin extends AbstractPlugin
 {
     public function boot()
     {
-        intercept('Storage@upload', 'orientator.orientate', function ($target, $uploaded, $path, $name = null, $disk = null) {
+        intercept('XeStorage@upload', 'orientator.orientate', function ($target, $uploaded, $path, $name = null, $disk = null) {
             /** @var UploadedFile $uploaded */
             if ($uploaded->isValid()) {
                 $mime = $uploaded->getMimeType();
