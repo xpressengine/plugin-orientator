@@ -11,7 +11,7 @@ namespace Xpressengine\Plugins\Orientator;
 
 use Xpressengine\Plugin\AbstractPlugin;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Xpressengine\Media\Spec\Media;
+use Xpressengine\Media\Models\Media;
 use Intervention\Image\ImageManager;
 
 class Plugin extends AbstractPlugin
@@ -23,6 +23,7 @@ class Plugin extends AbstractPlugin
             if ($uploaded->isValid()) {
                 $mime = $uploaded->getMimeType();
 
+                /** @var \Xpressengine\Media\Handlers\ImageHandler $imageHandler */
                 $imageHandler = app('xe.media')->getHandler(Media::TYPE_IMAGE);
 
                 // todo: 모바일 판단여부 적용 or 무시 (ex. app('request')->isMobile())
