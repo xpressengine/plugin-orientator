@@ -53,6 +53,10 @@ class Plugin extends AbstractPlugin
 
     public function activate($installedVersion = null)
     {
-        //
+        if (!function_exists('exif_read_data')) {
+            throw new \Intervention\Image\Exception\NotSupportedException(
+                "Reading Exif data is not supported by this PHP installation."
+            );
+        }
     }
 }
