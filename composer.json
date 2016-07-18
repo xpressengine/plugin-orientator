@@ -2,7 +2,7 @@
   "name": "xpressengine-plugin/orientator",
   "description": "Image orientate plugin",
   "keywords": ["xpressengine bundle", "image", "media", "orientate"],
-  "version": "0.9.0",
+  "version": "0.9.1",
   "support": {
     "email": "developers@xpressengine.com"
   },
