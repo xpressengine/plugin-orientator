@@ -2,7 +2,7 @@
   "name": "xpressengine-plugin/orientator",
   "description": "Image orientate plugin",
   "keywords": ["xpressengine bundle", "image", "media", "orientate"],
-  "version": "0.9.1",
+  "version": "1.0.0",
   "support": {
     "email": "developers@xpressengine.com"
   },
@@ -14,7 +14,7 @@
       "role": "Developer"
     }
   ],
-  "license": "LGPL-2.1",
+  "license": "LGPL-3.0-or-later",
   "type": "xpressengine-plugin",
   "extra": {
     "xpressengine": {
@@ -23,6 +23,7 @@
     }
   },
   "require": {
+    "xpressengine/xpressengine": "~3.0.2",
     "intervention/image": "2.1.*"
   }
 }
