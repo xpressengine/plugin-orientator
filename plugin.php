@@ -33,7 +33,8 @@ class Plugin extends AbstractPlugin
 {
     public function boot()
     {
-        intercept('XeStorage@upload', 'orientator.orientate', function ($target, $uploaded, $path, $name = null, $disk = null, $user = null) {
+        intercept('XeStorage@upload', 'orientator.orientate', function ($target, $uploaded, $path, $name = null, $disk = null, $user = null, $option = [], $force = false) {
+
             /** @var UploadedFile $uploaded */
             if ($uploaded->isValid()) {
                 $mime = $uploaded->getMimeType();
@@ -42,7 +43,7 @@ class Plugin extends AbstractPlugin
                 $imageHandler = app('xe.media')->getHandler(Media::TYPE_IMAGE);
 
                 // todo: 모바일 판단여부 적용 or 무시 (ex. app('request')->isMobile())
-                if ($imageHandler->isAvailable($mime)) {
+                if ($imageHandler->isAvailable($mime) || app('request')->isMobile()) {
                     $manager = new ImageManager();
                     $image = $manager->make($uploaded);
 
@@ -61,7 +62,7 @@ class Plugin extends AbstractPlugin
                 }
             }
 
-            return $target($uploaded, $path, $name, $disk, $user);
+            return $target($uploaded, $path, $name, $disk, $user, $option, $force);
 
         });
     }
