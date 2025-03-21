@@ -23,7 +23,7 @@
     }
   },
   "require": {
-    "xpressengine/xpressengine": "~3.0.2",
+    "xpressengine/xpressengine": "^3.0.2",
     "intervention/image": "2.1.*"
   }
 }

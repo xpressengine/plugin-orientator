@@ -31,6 +31,9 @@ use Intervention\Image\ImageManager;
  */
 class Plugin extends AbstractPlugin
 {
+    /**
+     * @return void
+     */
     public function boot()
     {
         intercept('XeStorage@upload', 'orientator.orientate', function ($target, $uploaded, $path, $name = null, $disk = null, $user = null, $option = [], $force = false) {
@@ -47,7 +50,8 @@ class Plugin extends AbstractPlugin
                     $manager = new ImageManager();
                     $image = $manager->make($uploaded);
 
-                    if (isset($image->exif()['Orientation'])) {
+                    $exif = @$image->exif();
+                    if (is_array($exif) && isset($exif['Orientation']) && $exif['Orientation'] > 1) {
                         $content = $image->orientate()->encode()->getEncoded();
 
                         file_put_contents($uploaded->getPathname(), $content);
@@ -55,8 +59,7 @@ class Plugin extends AbstractPlugin
                         $uploaded = new UploadedFile(
                             $uploaded->getPathname(),
                             $uploaded->getClientOriginalName(),
-                            $uploaded->getClientMimeType(),
-                            strlen($content)
+                            $uploaded->getClientMimeType()
                         );
                     }
                 }
@@ -67,6 +70,10 @@ class Plugin extends AbstractPlugin
         });
     }
 
+    /**
+     * @param $installedVersion
+     * @return void
+     */
     public function activate($installedVersion = null)
     {
         if (!function_exists('exif_read_data')) {
