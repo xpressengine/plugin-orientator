@@ -1,8 +1,13 @@
 {
   "name": "xpressengine-plugin/orientator",
   "description": "Image orientate plugin",
-  "keywords": ["xpressengine bundle", "image", "media", "orientate"],
-  "version": "1.0.0",
+  "keywords": [
+    "xpressengine bundle",
+    "image",
+    "media",
+    "orientate"
+  ],
+  "version": "1.1.0",
   "support": {
     "email": "developers@xpressengine.com"
   },
@@ -10,7 +15,7 @@
     {
       "name": "XE Developers",
       "email": "developers@xpressengine.com",
-      "homepage": "http://xpressengine.io",
+      "homepage": "https://xpressengine.io",
       "role": "Developer"
     }
   ],
@@ -23,7 +28,13 @@
     }
   },
   "require": {
-    "xpressengine/xpressengine": "~3.0.2",
-    "intervention/image": "2.1.*"
+    "php": "^8.2",
+    "xpressengine/xpressengine": "^3.2",
+    "intervention/image": "3.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Xpressengine\\Plugins\\Orientator\\": "src/"
+    }
   }
 }
